@@ -1,0 +1,418 @@
+/* :root {
+    --w: 500px;
+    --bg: red;
+}
+
+.box {
+    --m: 50px;
+    width: calc(var(--w) * 100);
+    height: var(--w);
+    background: var(--bg);
+    margin: var(--m);
+} */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background: url(1915.jpg) no-repeat center / cover, url(lighting.gif) no-repeat 3% -19%/29%, url(westarm.png) no-repeat -3% -4%/89%, url("sky.jpg") repeat 0em 0%/150%;
+    overflow: hidden;
+    animation: fon 13s ease-in 10s forwards, sky 20s linear 10s infinite;
+}
+@keyframes fon{
+  0%{background-blend-mode: hue;}
+  4%{background-blend-mode: hue;}
+  10%{background-blend-mode: color;}
+  25%{background-blend-mode: screen;}
+  30%{background-blend-mode: hue;}
+  45%{background-blend-mode: overlay;}
+  60%{background-blend-mode: color;}
+  70%{background-blend-mode: hue;}
+  85%{background-blend-mode: overlay;}
+  100%{background-blend-mode: soft-light;}
+}
+@keyframes sky {
+  0% {
+    background:  url(1915.jpg) no-repeat center / cover ,url(lighting.gif) no-repeat 3% -19%/49%, url(westarm.png) no-repeat -3% -4%/89%, url("sky.jpg") repeat 0em 0%/150%;
+  }
+  100% {
+    background:  url(1915.jpg) no-repeat center / cover ,url(lighting.gif) no-repeat 3% -19%/49%, url(westarm.png) no-repeat -3% -4%/89%, url("sky.jpg") repeat -144em 0%/150%;
+  }
+}
+.slider{
+    perspective: 850px;
+    overflow: hidden;
+}
+.slider .parentAnim {
+  transform-style: preserve-3d;
+  width: 83%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: grab;
+  transform: rotateX(45deg) translateY(-57px);
+  animation: kino 10s linear forwards;
+}
+@keyframes kino {
+  0%{ transform:rotateX(-73deg) translate3d(8em, -36em, 46em); }
+  15%{ transform:rotateX(-73deg) translate3d(8em, -36em, 46em); }
+  80%{ transform:rotateX(-73deg) translate3d(9em, -2em, 33em); }
+  100%{ transform:rotateX(45deg) translateY(-57px); }
+}
+.slider:active {
+    cursor: grabbing;
+}
+.slider .karusel{
+    margin-top: 346px;
+    transform-style: preserve-3d;
+    position: relative;
+    width: 300px;
+    height: 495px;
+    transform: translateZ(-600px) rotateX(-15deg) rotateY(340deg);
+    transition: .3s;
+    
+}
+.endLuys {
+  position: absolute;
+  transform-style: preserve-3d;
+  bottom: 4em;
+  left: 8em;
+}
+.endLuys span {
+  display: block;
+  width: 20px;
+  height: 0;
+  background: #fff;
+  box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #fff, 0 0 50px #fff, 0 0 60px #fff, 0 0 70px #fff, 0 0 80px #f6f8bb;
+  border-radius: 50%;
+  transition: .5s;
+}
+.slider .xach span{
+  position: absolute;
+  top:300px;
+  left:590px;
+  display: block;
+  width: 220px;
+  height: 10px;
+  background: #fff;
+  box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #fff, 0 0 50px #fff, 0 0 60px #fff, 0 0 70px #fff, 0 0 80px #f7ff00;
+  border-radius: 20%;
+  transition: .5s;
+  opacity: 0;
+}
+.slider .karusel .item{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url(7.jpg) repeat center/cover;
+    transform: rotateY(calc(var(--i) *45deg)) rotateX(28deg) translateZ(340px);
+    -webkit-box-reflect: below 2px linear-gradient(transparent, transparent, black) ;
+    clip-path: polygon(30% 0, 72% 0, 100% 100%, 0% 100%);
+}
+.slider .karusel .item img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: 3s;
+  opacity: 0;
+}
+.slider .karusel .floor {
+    transform-style: preserve-3d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 850px;
+    height: 850px;
+    background: url(8.jpg) repeat center/cover;
+    border-radius: 50%;
+    transform: translateX(-17em) rotateX(-90deg) translateZ(-119px) translateY(0em);
+}
+
+.slider .karusel .floor .hall{
+    transform-style: preserve-3d;
+    
+    z-index: 1;
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    background: url("ANMORUK.png") no-repeat center/cover;
+    
+}
+.firecub{
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    left: 50%;
+    top: 64%;
+    transform-style: preserve-3d;
+    transform: translate(-50%, -50%);
+    animation: fire 3s linear 1s forwards;
+    transition: .5s;
+}
+@keyframes fire {
+  0% { top: 64%; }
+  15% { top: 64%; }
+  100% { top: 25%; }
+}
+.fire {
+  width: 100%;
+  height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    transform-style: preserve-3d;
+    filter: drop-shadow(4px 4px 17px orange) drop-shadow(0px -29px 0px OrangeRed);
+    transform-origin: bottom;
+}
+.fire.one{
+  transform: rotateX(25deg) translateZ(8px);
+}
+.fire.two{
+  transform: rotateY(-90deg) rotateX(-25deg) translateZ(8px);
+}
+.fire.three{
+  transform: rotateY(90deg) rotateX(-25deg) translateZ(8px);
+}
+.fire.four{
+  transform: rotateX(-25deg) translateZ(-8px);
+}
+.slider .karusel .container{
+    transform-style: preserve-3d;
+    margin:80px auto;
+    width: 60px;
+    height: 60px;
+    position:relative;
+    transform-origin:center bottom;
+    animation-name: flicker;
+    animation-duration:3ms;
+    animation-delay:200ms;
+    animation-timing-function: ease-in;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    transform: translateX(17em) rotateX(90deg) translateZ(119px) translateY(0em);
+  }
+  
+  .flame{
+    bottom:0;
+    position:absolute;
+    border-bottom-right-radius: 50%;
+    border-bottom-left-radius: 50%;
+    border-top-left-radius: 50%;
+    transform:rotate(-35deg) scale(1.5,1.5);
+  }
+  
+  .yellow{
+    left:15px; 
+    width: 40px;
+    height: 40px;
+    background:gold;
+    box-shadow: 0px 0px 9px 4px gold;
+  }
+  
+  .orange{
+    left:10px; 
+    width: 50px;
+    height: 50px;
+    background:orange;
+    box-shadow: 0px 0px 9px 4px orange;
+  }
+  
+  .red{
+    left:5px;
+    width: 60px;
+    height: 60px;
+    background:OrangeRed;
+    box-shadow: 0px 0px 5px 4px OrangeRed;
+  }
+  
+  .white{
+    left:15px; 
+    bottom:-4px;
+    width: 40px;
+    height: 40px;
+    background:white;
+    box-shadow: 0px 0px 9px 4px white;
+  }
+  
+  .circle{
+    border-radius: 50%;
+    position:absolute;  
+  }
+  
+  .blue{
+    width: 10px;
+    height: 10px;
+    left:25px;
+    bottom:-25px; 
+    background: SlateBlue;
+    box-shadow: 0px 0px 15px 10px SlateBlue;
+  }
+  
+   
+  @keyframes flicker{
+    0%   {transform: rotate(-1deg);}
+    20%  {transform: rotate(1deg);}
+    40%  {transform: rotate(-1deg);}
+    60%  {transform: rotate(1deg) scaleY(1.04);}
+    80%  {transform: rotate(-2deg) scaleY(0.92);}
+    100% {transform: rotate(1deg);}
+  }
+  .tur{
+    width: 15%;
+    height: 1100px;
+    display: flex;
+    justify-content: center;
+    cursor: grab;
+    position: absolute;
+    right: -215px;
+    top: -400px;
+    transform-style: preserve-3d;
+    transform: translateZ(-500px) rotateY(10deg);
+    transform-origin: 90% 50%;
+    transition: .3s;
+  }
+  .tur .sur{
+    transform-style: preserve-3d;
+
+  }
+  .tur .sur .pat{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 140px;
+    height: 1100px;
+    clip-path: polygon(50% 0%, 0 100%, 100% 100%);
+    background: url(7.jpg) repeat center/cover;
+    border: 2px solid;
+    transform: rotateY(calc(var(--i) * 89deg)) rotateX(3.4deg) translateZ(34px);
+    text-align: center;
+    
+    
+  }
+  .tur .sur .pat p{
+    font-family: cursive;
+    font-size: 35px;
+    font-weight: bolder;
+    color: rgb(85, 37, 37);
+    margin-top: 255px;
+    margin-left: 0px;
+    transform: rotateZ(90deg);
+    animation: anime 3s linear infinite;
+    opacity: 0;
+    transition: 1s;
+
+   }
+   @keyframes anime{
+     0%, 18%, 20%, 50.1%, 60%, 65.1%,80%, 90.1%, 92%
+     {
+       color:#282828;
+       text-shadow: none;
+     }
+     18.1%, 20.1%, 30%,50%, 60.1%, 65%,80.1%, 90%, 92.1%, 100%
+     {
+       color:white;
+       text-shadow:0px 0px 10px #eb4662,
+       0px 0px 20px #eb4662,
+       0px 0px 40px #eb4662,
+       0px 0px 80px #eb4662,
+       0px 0px 160px #eb4662
+     }
+   }
+  
+  .slider .info{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    height: 500px;
+    /* background: rgba(0, 0, 0, 0.7); */
+    top:50px;
+    left:70px;
+    color: white;
+    font-size: 10px;
+    padding: 20px 20px;
+    text-align: center;
+    line-height: 40px;
+    opacity: 0;
+    transition: 1.5s;
+    /* box-shadow: -2px -2px 5px rgba(240, 98, 98, 0.5),
+                   inset 4px 4px 10px rgba(224, 50, 59, 0.3),
+                   inset -4px -4px 10px rgba(233, 88, 88, 0.3),
+                   4px 4px 10px rgba(230, 10, 10, 0.3); */
+    text-shadow:0px 0px 10px #eb4662,
+                   0px 0px 20px #eb4662,
+                   0px 0px 40px #eb4662,
+                   0px 0px 80px #eb4662,
+                   0px 0px 160px #eb4662
+  }
+  body.new{
+    background: url(cloud1.png) no-repeat 104% 4%/40% , url(cloud2.png) no-repeat 133% 45%/30% , url(flag.gif) no-repeat 72% 15%/20%, url(sunsky.jpg) no-repeat center/cover;
+    animation: amp 65s linear infinite;
+  }
+  @keyframes amp{
+    0%{
+      background: url(cloud1.png) no-repeat 104% 4%/40% , url(cloud2.png) no-repeat 163% 45%/30% ,url(flag.gif) no-repeat 72% 15%/20%, url(sunsky.jpg) no-repeat center/cover
+    }
+    100%{
+      background: url(cloud1.png) no-repeat -110% 4%/40% , url(cloud2.png) no-repeat -30% 45%/30% ,url(flag.gif) no-repeat 72% 15%/20%, url(sunsky.jpg) no-repeat center/cover
+    }
+  }
+.dvLuys {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 50% -10%, #fff 0 16%, transparent 108% 100%);
+  opacity: 0;
+  transition: 1s;
+}
+.slider .eagle{
+  position: absolute;
+  right: -286px;
+  height: 250px;
+  top: 0;
+}
+.slider .eagle.start {
+  animation: trichq 15s 1;
+}
+@keyframes trichq{
+  0%{
+    right: -286px;
+    top: 0;
+  }
+  100%{
+    right: 120%;
+    top: 40%;
+  }
+}
+.slider h2{
+  position: absolute;
+  left:5%;
+  top:15%;
+  font-family: cursive;
+  font-size: 36px;
+  white-space: nowrap;
+  overflow: hidden;
+  display: none;
+}
+.slider h2.avtor{
+  display: block;
+  animation: author 3s steps(35) forwards;
+}
+@keyframes author{
+  0%{
+    width: 0;
+  }
+  100%{
+    width: 40%;
+  }
+}
